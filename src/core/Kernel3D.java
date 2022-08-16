@@ -14,6 +14,7 @@ public class Kernel3D implements IProgram ,Runnable{
     }
     @Override
     public void stop() {
+        running = false;
     }
 
     @Override
