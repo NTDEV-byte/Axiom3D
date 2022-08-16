@@ -7,9 +7,14 @@ public class Kernel3D implements IProgram ,Runnable{
 
 
     @Override
-    public void start() {}
+    public void start() {
+        running = true;
+        thread = new Thread(this, "Kernel3D - Thread");
+        thread.start();
+    }
     @Override
-    public void stop() {}
+    public void stop() {
+    }
 
     @Override
     public void run() {
