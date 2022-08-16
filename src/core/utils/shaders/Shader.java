@@ -17,18 +17,15 @@ public class Shader implements IShader{
             id = createShaderVGFProgram(vertexPath , geometryPath , fragmentPath);
         }
 
-        public Shader(String vertexPath,String tesselationPath,String geometryPath,String fragmentPath){
-            id = createShaderVTGFProgram(vertexPath,tesselationPath , geometryPath, fragmentPath);
-        }
 
         @Override
         public void enable() {
-
+            GL20.glUseProgram(id);
         }
 
         @Override
         public void disable() {
-
+            GL20.glUseProgram(0);
         }
 
         @Override
@@ -97,8 +94,6 @@ public class Shader implements IShader{
             String geometryContent = FileLoader.loadFile(geometryPath);
             String fragmentContent = FileLoader.loadFile(fragmentPath);
 
-
-
             int programID = GL20.glCreateProgram();
             int vertexID = GL20.glCreateShader(GL20.GL_VERTEX_SHADER);
             int geomID = GL20.glCreateShader(GL32.GL_GEOMETRY_SHADER);
@@ -136,7 +131,6 @@ public class Shader implements IShader{
             return programID;
         }
 
-        private int createShaderVTGFProgram(String vertexPath,String tesselationPath,String geometryPath,String fragmentPath){}
 
 
 }
