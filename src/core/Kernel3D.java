@@ -7,7 +7,6 @@ public class Kernel3D implements IProgram ,Runnable{
     private boolean running;
     private Thread thread;
 
-
     @Override
     public void start() {
         running = true;
@@ -18,7 +17,6 @@ public class Kernel3D implements IProgram ,Runnable{
     public void stop() {
         running = false;
     }
-
     @Override
     public void run() {
         this.initialize();
