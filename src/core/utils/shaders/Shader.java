@@ -4,7 +4,11 @@ import core.utils.FileLoader;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL32;
+import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector2f;
+import org.lwjgl.util.vector.Vector3f;
 
+import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +16,8 @@ public class Shader implements IShader{
 
         private int id;
         private Map<String,Integer> uniforms = new HashMap<>();
+
+        private FloatBuffer buffer = FloatBuffer.allocate(4 * 4);
 
         public Shader(String vertexPath,String fragmentPath){
             id = createShaderVFProgram(vertexPath , fragmentPath);
@@ -34,27 +40,29 @@ public class Shader implements IShader{
 
         @Override
         public void loadUniform1i(String name, int value) {
-
+            GL20.glUniform1i(getUniformLocation(name) , value);
         }
 
         @Override
-        public void loadUniform1f(String name, int value) {
-
+        public void loadUniform1f(String name, float value) {
+            GL20.glUniform1f(getUniformLocation(name) , value);
         }
 
         @Override
-        public void loadUniform2f(String name, int value) {
-
+        public void loadUniform2f(String name, Vector2f vec2) {
+            GL20.glUniform2f(getUniformLocation(name) , vec2.x , vec2.y);
         }
 
         @Override
-        public void loadUniform3f(String name, int value) {
-
+        public void loadUniform3f(String name, Vector3f vec3) {
+            GL20.glUniform3f(getUniformLocation(name) , vec3.x , vec3.y , vec3.z);
         }
 
         @Override
-        public void loadUniformMatrix4FV(String name, int value) {
-
+        public void loadUniformMatrix4FV(String name, Matrix4f matrix) {
+             matrix.store(buffer);
+             buffer.flip();
+             GL20.glUniformMatrix4(getUniformLocation(name) , false , buffer);
         }
 
         private int getUniformLocation(String name){
@@ -139,7 +147,5 @@ public class Shader implements IShader{
 
             return programID;
         }
-
-
 
 }
