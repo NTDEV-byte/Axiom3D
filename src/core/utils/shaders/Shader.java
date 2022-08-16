@@ -5,9 +5,13 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL32;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Shader implements IShader{
 
         private int id;
+        private Map<String,Integer> uniforms = new HashMap<>();
 
         public Shader(String vertexPath,String fragmentPath){
             id = createShaderVFProgram(vertexPath , fragmentPath);
@@ -54,7 +58,12 @@ public class Shader implements IShader{
         }
 
         private int getUniformLocation(String name){
-            return -1;
+            if(uniforms.containsKey(name)){
+                return uniforms.get(name);
+            }
+            int uniLocation = GL20.glGetUniformLocation(id , name);
+            uniforms.put(name, uniLocation);
+            return uniLocation;
         }
 
         private int createShaderVFProgram(String vertexPath,String fragmentPath){

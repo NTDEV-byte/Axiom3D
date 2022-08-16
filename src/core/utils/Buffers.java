@@ -9,7 +9,6 @@ public class Buffers {
 
         private Buffers(){}
 
-
         public static ByteBuffer createByteBuffer(byte data[]){
 
                 ByteBuffer bufferData = ByteBuffer.allocateDirect(data.length);
@@ -36,6 +35,5 @@ public class Buffers {
 
                 return bufferData;
         }
-
 
 }
