@@ -1,9 +1,12 @@
 package core;
 
+import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
+import org.lwjgl.opengl.ContextAttribs;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.PixelFormat;
 
-import javax.swing.*;
 
 public class Window {
 
@@ -19,13 +22,25 @@ public class Window {
         private Window(){}
 
         public static void createWindow(){
-
+                try {
+                        Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
+                        Display.create(new PixelFormat() , new ContextAttribs(3,3));
+                } catch (LWJGLException e) {
+                        throw new RuntimeException(e);
+                }
+                Display.setTitle(TITLE);
         }
 
+        public static void update(){
+                Display.update();
+                activateTimer();
+                limitFPS(MAX_FPS);
+        }
 
-        private static double update(){}
-
-
+        public static boolean isCloseRequested(){
+                return Display
+                        .isCloseRequested();
+        }
         private static double getTimeInMS(){
                 return Sys.getTime() * 1000 / Sys.getTimerResolution();
         }
@@ -43,6 +58,5 @@ public class Window {
         public static double getElapsedTime(){ // the elapsed time between two frames
                 return delta;
         }
-
 
 }

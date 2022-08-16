@@ -25,8 +25,15 @@ public class Kernel3D implements IProgram ,Runnable{
             render();
         }
     }
-    private void initialize(){}
-    private void update(){}
+    private void initialize(){
+        Window.createWindow();
+    }
+    private void update(){
+        Window.update();
+        if(Window.isCloseRequested()){
+             stop();
+        }
+    }
     private void render(){}
 
     public static void main(String args[]){
