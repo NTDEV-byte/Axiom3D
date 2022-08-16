@@ -29,10 +29,9 @@ public class Kernel3D implements IProgram ,Runnable{
     private void update(){}
     private void render(){}
 
-
-
     public static void main(String args[]){
-
+         Kernel3D kernel = new Kernel3D();
+         kernel.start();
     }
 
 }
