@@ -1,5 +1,7 @@
 package core;
 
+import org.lwjgl.opengl.GL11;
+
 public class Kernel3D implements IProgram ,Runnable{
 
     private boolean running;
@@ -27,6 +29,7 @@ public class Kernel3D implements IProgram ,Runnable{
     }
     private void initialize(){
         Window.createWindow();
+        GL11.glClearColor(1.0f , 1.0f , 1.0f , 1.0f);
     }
     private void update(){
         Window.update();
@@ -34,7 +37,9 @@ public class Kernel3D implements IProgram ,Runnable{
              stop();
         }
     }
-    private void render(){}
+    private void render(){
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+    }
 
     public static void main(String args[]){
          Kernel3D kernel = new Kernel3D();
