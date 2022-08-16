@@ -11,10 +11,8 @@ public class FileLoader {
             private FileLoader(){}
 
             public static String loadFile(String fileName){
-
                 StringBuilder builder = new StringBuilder();
                 String line;
-
                 try {
                     BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
