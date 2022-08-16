@@ -4,8 +4,16 @@ public class Shader implements IShader{
 
         private int id;
 
-        public Shader(){
+        public Shader(String vertexPath,String fragmentPath){
+            id = createShaderVFProgram(vertexPath , fragmentPath);
+        }
 
+        public Shader(String vertexPath,String geometryPath, String fragmentPath){
+            id = createShaderVGFProgram(vertexPath , geometryPath , fragmentPath);
+        }
+
+        public Shader(String vertexPath,String tesselationPath,String geometryPath,String fragmentPath){
+            id = createShaderVTGFProgram(vertexPath,tesselationPath , geometryPath, fragmentPath);
         }
 
         @Override
@@ -47,11 +55,11 @@ public class Shader implements IShader{
             return -1;
         }
 
-        private void createShaderVFProgram(String vertexPath,String fragmentPath){}
+        private int createShaderVFProgram(String vertexPath,String fragmentPath){}
 
-        private void createShaderVGFProgram(String vertexPath,String geometryPath,String fragmentPath){}
+        private int createShaderVGFProgram(String vertexPath,String geometryPath,String fragmentPath){}
 
-        private void createShaderVTGFProgram(String vertexPath,String tesselationPath,String geometryPath,String fragmentPath){}
+        private int createShaderVTGFProgram(String vertexPath,String tesselationPath,String geometryPath,String fragmentPath){}
 
 
 }
