@@ -17,7 +17,6 @@ public class VertexArray implements IVao {
     @Override
     public void enable() {
 
-
     }
 
     @Override
