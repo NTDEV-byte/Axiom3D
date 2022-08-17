@@ -14,7 +14,6 @@ public abstract class Scene implements IScene {
     public static final Vector3f Y_AXIS = new Vector3f(0,1,0);
     public static final Vector3f Z_AXIS = new Vector3f(0,0,1);
 
-
     public static final Matrix4f PROJECTION_MATRIX  = null;
 
     protected List<Entity> entities;
