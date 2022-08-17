@@ -57,16 +57,6 @@ public class Kernel3D implements IProgram ,Runnable{
         if(Window.isCloseRequested()){
              stop();
         }
-        angle+=0.01f;
-
-
-        float sin = (float)(Math.sin(angle));
-
-        modelMatrix.setIdentity();
-        modelMatrix.translate(new Vector3f(sin,0,0));
-        shader.enable();
-        shader.loadUniformMatrix4FV("modelMatrix" , modelMatrix);
-        shader.disable();
     }
     private void render(){
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
