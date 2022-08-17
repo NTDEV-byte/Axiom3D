@@ -64,7 +64,6 @@ public class Shader implements IShader{
              buffer.flip();
              GL20.glUniformMatrix4(getUniformLocation(name) , false , buffer);
         }
-
         private int getUniformLocation(String name){
             if(uniforms.containsKey(name)){
                 return uniforms.get(name);
@@ -86,11 +85,13 @@ public class Shader implements IShader{
             GL20.glCompileShader(vertexID);
             if(GL20.glGetShaderi(vertexID, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE){
                 System.err.println("Erreur lors de la compilation du Vertex Shader: "+vertexPath);
+                System.err.println(GL20.glGetShaderInfoLog(vertexID , 1000));
             }
             GL20.glShaderSource(fragmentID , fragmentContent);
             GL20.glCompileShader(fragmentID);
             if(GL20.glGetShaderi(fragmentID, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE){
                 System.err.println("Erreur lors de la compilation du Fragment Shader: "+fragmentPath);
+                System.err.println(GL20.glGetShaderInfoLog(fragmentID , 1000));
             }
 
             GL20.glAttachShader(programID,vertexID);
