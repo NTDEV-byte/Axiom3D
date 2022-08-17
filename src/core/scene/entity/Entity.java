@@ -74,7 +74,9 @@ public abstract class Entity implements IEntity {
 
     @Override
     public void move(int dx, int dy, int dz) {
-
+            position.x += dx;
+            position.y += dy;
+            position.z += dz;
     }
 
     // shader data loading
