@@ -7,32 +7,53 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
-import java.nio.Buffer;
-import java.util.ArrayList;
 import java.util.List;
 
 public class VertexBufferObject {
-
 
         private static final int POSITIONS_LOCATION = 0;
         private static final int UVS_LOCATIONS = 1;
         private static final int NORMALS_LOCATIONS = 2;
 
-
         private int vbo,tbo,nbo;
+        private int ibo;
         private float positions[];
         private float uvs[];
         private float normals[];
+        private int indices[];
         private Vertex axiom;
         private List<Vertex> vertices;
+        private List<Integer> indicesList;
 
         public VertexBufferObject(List<Vertex> vertices){
                 this.vertices = vertices;
                 this.prepareVBO();
-                this.createBuffers();
+                this.createBuffersData();
+        }
+        public VertexBufferObject(List<Vertex> vertices,List<Integer> indicesList){
+                this.vertices = vertices;
+                this.indicesList = indicesList;
+                this.prepareVBO();
+                this.createBuffersData();
+                this.createIndexBufferObject();
         }
 
-        private void createBuffers(){
+        public void bindIbo(){
+                GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER,ibo);
+        }
+        public void unbindIbo(){
+                GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER,0);
+        }
+        private void createIndexBufferObject(){
+                indices = new int[indicesList.size()];
+                for(int i = 0; i < indices.length; i++){
+                         indices[i] = indicesList.get(i);
+                }
+                ibo = GL15.glGenBuffers();
+                GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER , ibo);
+                GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, BuffersHelper.createIntBuffer(indices) , GL15.GL_STATIC_DRAW);
+        }
+        private void createBuffersData(){
                 switch (axiom.gimmeInformationAboutYou()) {
                         case Vertex.VERTEX_POSITION_ONLY -> {
 
@@ -68,13 +89,11 @@ public class VertexBufferObject {
                                 GL20.glVertexAttribPointer(POSITIONS_LOCATION,3, GL11.GL_FLOAT,false,0,0);
                                 GL20.glEnableVertexAttribArray(POSITIONS_LOCATION);
 
-
                                 tbo = GL15.glGenBuffers();
                                 GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER , tbo);
                                 GL15.glBufferData(GL15.GL_ARRAY_BUFFER, BuffersHelper.createFloatBuffer(uvs) , GL15.GL_STATIC_DRAW);
                                 GL20.glVertexAttribPointer(UVS_LOCATIONS,2, GL11.GL_FLOAT,false,0,0);
                                 GL20.glEnableVertexAttribArray(UVS_LOCATIONS);
-
 
                                 nbo = GL15.glGenBuffers();
                                 GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER , nbo);
