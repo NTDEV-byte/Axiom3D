@@ -5,45 +5,43 @@ import org.lwjgl.util.vector.Vector3f;
 
 public class Vertex {
 
+        public static final int VERTEX_POSITION_ONLY = 1;
+        public static final int VERTEX_POSITION_UV = 2;
+        public static final int VERTEX_INFORMATION_COMPLETE = 3;
         private Vector3f position;
         private Vector2f uvs;
         private Vector3f normal;
+        private int whatInformationIsStored;
 
         public Vertex(Vector3f position) {
                 this.position = position;
+                this.whatInformationIsStored = VERTEX_POSITION_ONLY;
         }
         public Vertex(Vector3f position, Vector2f uvs) {
                 this(position);
                 this.uvs = uvs;
+                this.whatInformationIsStored = VERTEX_POSITION_UV;
         }
-
         public Vertex(Vector3f position, Vector2f uvs, Vector3f normal) {
                 this(position,uvs);
                 this.normal = normal;
+                this.whatInformationIsStored = VERTEX_INFORMATION_COMPLETE;
         }
-
 
         public Vector3f getPosition() {
                 return position;
-        }
-
-        public void setPosition(Vector3f position) {
-                this.position = position;
         }
 
         public Vector2f getUvs() {
                 return uvs;
         }
 
-        public void setUvs(Vector2f uvs) {
-                this.uvs = uvs;
-        }
-
         public Vector3f getNormal() {
                 return normal;
         }
 
-        public void setNormal(Vector3f normal) {
-                this.normal = normal;
+        public int gimmeInformationAboutYou(){
+               return whatInformationIsStored;
         }
+
 }
