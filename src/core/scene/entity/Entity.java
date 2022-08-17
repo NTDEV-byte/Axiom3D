@@ -92,7 +92,11 @@ public abstract class Entity implements IEntity {
         modelMatrix.scale(scale);
         return modelMatrix;
     }
-    protected void loadModelMatrix(){}
+    protected void loadModelMatrix(){
+        shader.enable();
+        shader.loadUniformMatrix4FV("modelMatrix" , createModelMatrix());
+        shader.disable();
+    }
 
     protected void loadViewMatrix(ICamera camera){}
 
