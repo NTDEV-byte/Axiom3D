@@ -22,7 +22,9 @@ public class Texture
     public void enable(){
         GL11.glBindTexture(GL11.GL_TEXTURE_2D,id);
     }
-
+    public void disable(){
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D,0);
+    }
 
     private int createTexture(String texturePath){
         try {
