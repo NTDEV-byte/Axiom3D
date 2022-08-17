@@ -2,6 +2,7 @@ package core.utils.textures;
 
 import core.utils.BuffersHelper;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL13;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -18,6 +19,10 @@ public class Texture
     public Texture(String texturePath){
         this.id = createTexture(texturePath);
     }
+    public void enable(){
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D,id);
+    }
+
 
     private int createTexture(String texturePath){
         try {
