@@ -5,9 +5,9 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public class Buffers {
+public class BuffersHelper {
 
-        private Buffers(){}
+        private BuffersHelper(){}
 
         public static ByteBuffer createByteBuffer(byte data[]){
 
@@ -18,7 +18,7 @@ public class Buffers {
                 return bufferData;
         }
 
-        public static IntBuffer createInBuffer(int data[]){
+        public static IntBuffer createIntBuffer(int data[]){
 
                 IntBuffer bufferData = ByteBuffer.allocateDirect(data.length << 4).order(ByteOrder.nativeOrder()).asIntBuffer();
                 bufferData.put(data);
