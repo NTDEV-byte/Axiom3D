@@ -59,8 +59,11 @@ public class Kernel3D implements IProgram ,Runnable{
         }
         angle+=0.01f;
 
+
+        float sin = (float)(Math.sin(angle));
+
         modelMatrix.setIdentity();
-        modelMatrix.scale(new Vector3f(angle,angle,angle));
+        modelMatrix.translate(new Vector3f(sin,0,0));
         shader.enable();
         shader.loadUniformMatrix4FV("modelMatrix" , modelMatrix);
         shader.disable();
