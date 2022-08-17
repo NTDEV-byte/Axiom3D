@@ -54,7 +54,7 @@ public abstract class Entity implements IEntity {
         this.rotation = new Vector3f();
         this.modelMatrix = new Matrix4f();
         this.scale = new Vector3f(1.0f , 1.0f , 1.0f);
-      //  this.loadProjectionMatrix();
+        this.loadProjectionMatrix();
     }
     private void initScaled(){
         this.rotation = new Vector3f();

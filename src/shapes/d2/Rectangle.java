@@ -29,6 +29,7 @@ public class Rectangle extends Entity {
         super.loadModelMatrix();
         super.loadViewMatrix(Scene.MAIN_CAMERA);
         super.rotate(0.0f,6f,0);
+        super.move(0,0,-0.01f);
     }
 
 

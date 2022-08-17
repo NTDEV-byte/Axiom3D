@@ -1,5 +1,6 @@
 package core.scene;
 
+import core.Window;
 import core.scene.camera.Camera;
 import core.scene.camera.FirstCamera;
 import core.scene.entity.Entity;
@@ -16,7 +17,12 @@ public abstract class Scene implements IScene {
     public static final Vector3f Y_AXIS = new Vector3f(0,1,0);
     public static final Vector3f Z_AXIS = new Vector3f(0,0,1);
 
-    public static final Matrix4f PROJECTION_MATRIX  = null;
+    public static final Matrix4f PROJECTION_MATRIX  = createPerspectiveProjection(
+                                                                               70.0f ,
+                                                                                   Window.WIDTH,
+                                                                                   Window.HEIGHT ,
+                                                                             0.1f ,
+                                                                              1000.0f);
     public static final Camera MAIN_CAMERA = new FirstCamera(new Vector3f(0,0,0));
     protected List<Entity> entities;
     protected Scene(){
@@ -46,4 +52,21 @@ public abstract class Scene implements IScene {
         }
     }
 
+    // see http://www.songho.ca/opengl/gl_projectionmatrix.html for more details
+    public static Matrix4f createPerspectiveProjection(float fov,float width,float height,float zNear,float zFar){
+        float halfFOV = (float)(Math.tan(Math.toRadians(fov / 2f)));
+        float aspectRatio = width / height;
+        float zRange = zFar - zNear;
+
+        Matrix4f projectionMatrix = new Matrix4f();
+        projectionMatrix.setIdentity();
+        projectionMatrix.m00 = 1.0f / (halfFOV * aspectRatio);
+        projectionMatrix.m11 = 1.0f / halfFOV;
+        projectionMatrix.m22 = (-zFar - zNear) / zRange;
+        projectionMatrix.m32 = -(2 * zFar * zNear) / zRange;
+        projectionMatrix.m23 = -1.0f;
+
+        return projectionMatrix;
+
+    }
 }
