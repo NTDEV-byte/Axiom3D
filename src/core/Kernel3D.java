@@ -60,7 +60,7 @@ public class Kernel3D implements IProgram ,Runnable{
         angle+=0.1f;
 
         modelMatrix.setIdentity();
-        modelMatrix.rotate(angle , new Vector3f(0,1,0));
+        modelMatrix.rotate(angle , new Vector3f(1,1,1));
         shader.enable();
         shader.loadUniformMatrix4FV("modelMatrix" , modelMatrix);
         shader.disable();
