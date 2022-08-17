@@ -1,6 +1,7 @@
 package core.utils.shaders;
 
 import core.utils.FileLoader;
+import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL32;
@@ -17,7 +18,7 @@ public class Shader implements IShader{
         private int id;
         private Map<String,Integer> uniforms = new HashMap<>();
 
-        private FloatBuffer buffer = FloatBuffer.allocate(4 * 4);
+        private FloatBuffer buffer = BufferUtils.createFloatBuffer(4 * 4);
 
         public Shader(String vertexPath,String fragmentPath){
             id = createShaderVFProgram(vertexPath , fragmentPath);

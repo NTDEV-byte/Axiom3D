@@ -4,11 +4,10 @@ import core.utils.shaders.Shader;
 import core.utils.vaos.Vertex;
 import core.utils.vaos.VertexArray;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Kernel3D implements IProgram ,Runnable{
 
@@ -16,6 +15,9 @@ public class Kernel3D implements IProgram ,Runnable{
     private Thread thread;
     private VertexArray mesh;
     private Shader shader;
+
+    private Matrix4f modelMatrix = new Matrix4f();
+    private float angle = 0.0f;
 
     @Override
     public void start() {
@@ -38,7 +40,7 @@ public class Kernel3D implements IProgram ,Runnable{
     private void initialize(){
         Window.createWindow();
         GL11.glClearColor(0 , 0.0f , 0 , 1.0f);
-        shader=  new Shader("resources/shaders/basicVS.glsl" , "resources/shaders/basicFS.glsl");
+        shader = new Shader("resources/shaders/basicVS.glsl" , "resources/shaders/basicFS.glsl");
 
         this.mesh = new VertexArray(Arrays.asList(new Vertex[]{
                 new Vertex(new Vector3f(-0.5f , 0.5f , 0.0f)),
@@ -49,13 +51,19 @@ public class Kernel3D implements IProgram ,Runnable{
                 0,1,2,
                 2,1,3
         }));
-
     }
     private void update(){
         Window.update();
         if(Window.isCloseRequested()){
              stop();
         }
+        angle+=0.1f;
+
+        modelMatrix.setIdentity();
+        modelMatrix.rotate(angle , new Vector3f(1,0,0));
+        shader.enable();
+        shader.loadUniformMatrix4FV("modelMatrix" , modelMatrix);
+        shader.disable();
     }
     private void render(){
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
