@@ -1,22 +1,17 @@
 package core;
 
-import core.utils.shaders.Shader;
-import core.utils.vaos.Vertex;
-import core.utils.vaos.VertexArray;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Matrix4f;
-import org.lwjgl.util.vector.Vector3f;
 
-import java.util.Arrays;
+import core.scene.Scene;
+import org.lwjgl.opengl.GL11;
+import scenes.DefaultScene;
+
 
 public class Kernel3D implements IProgram {
     private boolean running;
     private Thread thread;
-    private VertexArray mesh;
-    private Shader shader;
+    private Scene scene;
 
-    private Matrix4f modelMatrix = new Matrix4f();
-    private float angle = 0.0f;
+
 
     @Override
     public void start() {
@@ -39,29 +34,18 @@ public class Kernel3D implements IProgram {
     private void initialize(){
         Window.createWindow();
         GL11.glClearColor(0 , 0.0f , 0 , 1.0f);
-        shader = new Shader("resources/shaders/basicVS.glsl" , "resources/shaders/basicFS.glsl");
-
-        this.mesh = new VertexArray(Arrays.asList(new Vertex[]{
-                new Vertex(new Vector3f(-0.5f , 0.5f , 0.0f)),
-                new Vertex(new Vector3f( 0.5f , 0.5f , 0.0f)),
-                new Vertex(new Vector3f(-0.5f , -0.5f , 0.0f)),
-                new Vertex(new Vector3f( 0.5f , -0.5f , 0.0f)),
-        }) , Arrays.asList(new Integer[]{
-                0,1,2,
-                2,1,3
-        }));
+        scene = new DefaultScene();
     }
     private void update(){
         Window.update();
         if(Window.isCloseRequested()){
              stop();
         }
+        scene.update();
     }
     private void render(){
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-        shader.enable();
-        mesh.render();
-        shader.enable();
+        scene.render();
     }
 
     public static void main(String args[]){

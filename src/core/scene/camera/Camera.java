@@ -27,7 +27,7 @@ public abstract class Camera implements ICamera {
     protected abstract void keyBoardInput();
     protected abstract void mouseInput();
 
-    @Override // or let me see through your eyes ^^
+    @Override //  let me see through your eyes
     public Matrix4f getEyeSpace() {
         viewMatrix.setIdentity();
         viewMatrix.rotate((float)(Math.toRadians(rotation.x)) , X_AXIS);

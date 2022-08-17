@@ -6,8 +6,8 @@ public interface IEntity {
 
             public void update();
             public void render();
-            public void rotate(int pitch,int yaw,int roll);
-            public void move(int dx,int dy,int dz);
+            public void rotate(float pitch,float yaw,float roll);
+            public void move(float dx,float dy,float dz);
 
 
 }

@@ -54,7 +54,7 @@ public abstract class Entity implements IEntity {
         this.rotation = new Vector3f();
         this.modelMatrix = new Matrix4f();
         this.scale = new Vector3f(1.0f , 1.0f , 1.0f);
-        this.loadProjectionMatrix();
+      //  this.loadProjectionMatrix();
     }
     private void initScaled(){
         this.rotation = new Vector3f();
@@ -83,13 +83,13 @@ public abstract class Entity implements IEntity {
         }
     }
     @Override
-    public void rotate(int pitch, int yaw, int roll) {
+    public void rotate(float pitch, float yaw, float roll) {
             rotation.x += pitch;
             rotation.y += yaw;
             rotation.z += roll;
     }
     @Override
-    public void move(int dx, int dy, int dz) {
+    public void move(float dx, float dy, float dz) {
             position.x += dx;
             position.y += dy;
             position.z += dz;
