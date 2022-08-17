@@ -2,11 +2,16 @@ package core.scene;
 
 import core.scene.entity.Entity;
 import core.scene.entity.IEntity;
+import org.lwjgl.util.vector.Vector3f;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Scene implements IScene {
+
+    public static final Vector3f X_AXIS = new Vector3f(1,0,0);
+    public static final Vector3f Y_AXIS = new Vector3f(0,1,0);
+    public static final Vector3f Z_AXIS = new Vector3f(0,0,1);
     protected List<Entity> entities;
     protected Scene(){
         entities = new ArrayList<>();

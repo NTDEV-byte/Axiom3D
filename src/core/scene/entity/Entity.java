@@ -1,11 +1,14 @@
 package core.scene.entity;
 
+import core.scene.Scene;
 import core.scene.camera.ICamera;
 import core.utils.shaders.Shader;
 import core.utils.textures.Texture;
 import core.utils.vaos.VertexArray;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
+
+import static core.scene.Scene.*;
 
 public abstract class Entity implements IEntity {
 
@@ -71,7 +74,6 @@ public abstract class Entity implements IEntity {
             rotation.y += yaw;
             rotation.z += roll;
     }
-
     @Override
     public void move(int dx, int dy, int dz) {
             position.x += dx;
@@ -81,8 +83,14 @@ public abstract class Entity implements IEntity {
 
     // shader data loading
 
-    private void createModelMatrix(){
-
+    private Matrix4f createModelMatrix(){
+        modelMatrix.setIdentity();
+        modelMatrix.translate(position);
+        modelMatrix.rotate(((float) Math.toRadians(rotation.x)),  X_AXIS);
+        modelMatrix.rotate(((float) Math.toRadians(rotation.y)),  Y_AXIS);
+        modelMatrix.rotate(((float) Math.toRadians(rotation.z)),  Z_AXIS);
+        modelMatrix.scale(scale);
+        return modelMatrix;
     }
     protected void loadModelMatrix(){}
 
