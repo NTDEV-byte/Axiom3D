@@ -49,16 +49,17 @@ public abstract class Entity implements IEntity {
         this.scale = new Vector3f(scalar,scalar,scalar);
         this.initScaled();
     }
-
     // init
     private void initDefault(){
         this.rotation = new Vector3f();
         this.modelMatrix = new Matrix4f();
         this.scale = new Vector3f(1.0f , 1.0f , 1.0f);
+        this.loadProjectionMatrix();
     }
     private void initScaled(){
         this.rotation = new Vector3f();
         this.modelMatrix = new Matrix4f();
+        this.loadProjectionMatrix();
     }
 
     // entity related behaviour
@@ -81,7 +82,6 @@ public abstract class Entity implements IEntity {
             texture.disable();
         }
     }
-
     @Override
     public void rotate(int pitch, int yaw, int roll) {
             rotation.x += pitch;
@@ -96,7 +96,6 @@ public abstract class Entity implements IEntity {
     }
 
     // shader data loading
-
     private Matrix4f createModelMatrix(){
         modelMatrix.setIdentity();
         modelMatrix.translate(position);
@@ -111,13 +110,11 @@ public abstract class Entity implements IEntity {
         shader.loadUniformMatrix4FV("modelMatrix" , createModelMatrix());
         shader.disable();
     }
-
     protected void loadViewMatrix(ICamera camera){
         shader.enable();
         shader.loadUniformMatrix4FV("viewMatrix" , camera.getEyeSpace());
         shader.disable();
     }
-
     protected void loadProjectionMatrix(){
         shader.enable();
         shader.loadUniformMatrix4FV("projectionMatrix", Scene.PROJECTION_MATRIX);
