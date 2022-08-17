@@ -62,7 +62,8 @@ public abstract class Entity implements IEntity {
     }
 
     // entity related behaviour
-    protected abstract void update();
+    @Override
+    public abstract void update();
 
     @Override
     public void render() {
@@ -98,7 +99,15 @@ public abstract class Entity implements IEntity {
         shader.disable();
     }
 
-    protected void loadViewMatrix(ICamera camera){}
+    protected void loadViewMatrix(ICamera camera){
+        shader.enable();
+        shader.loadUniformMatrix4FV("viewMatrix" , camera.getEyeSpace());
+        shader.disable();
+    }
 
-    protected void loadProjectionMatrix(){}
+    protected void loadProjectionMatrix(){
+        shader.enable();
+        shader.loadUniformMatrix4FV("projectionMatrix", Scene.PROJECTION_MATRIX);
+        shader.disable();
+    }
 }
