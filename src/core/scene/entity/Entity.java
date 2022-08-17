@@ -67,7 +67,9 @@ public abstract class Entity implements IEntity {
 
     @Override
     public void rotate(int pitch, int yaw, int roll) {
-
+            rotation.x += pitch;
+            rotation.y += yaw;
+            rotation.z += roll;
     }
 
     @Override
