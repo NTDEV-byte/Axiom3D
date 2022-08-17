@@ -5,6 +5,7 @@ import core.scene.camera.ICamera;
 import core.utils.shaders.Shader;
 import core.utils.textures.Texture;
 import core.utils.vaos.VertexArray;
+import org.lwjgl.opengl.GL13;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
@@ -18,7 +19,6 @@ public abstract class Entity implements IEntity {
     protected Vector3f position;
     protected Vector3f rotation;
     protected Vector3f scale;
-
     protected Matrix4f modelMatrix;
 
     public Entity(VertexArray mesh, Shader shader, Vector3f position) {
@@ -67,6 +67,19 @@ public abstract class Entity implements IEntity {
 
     @Override
     public void render() {
+        if(texture == null){
+            shader.enable();
+            mesh.render();
+            shader.disable();
+        }
+        else{
+            GL13.glActiveTexture(GL13.GL_TEXTURE0);
+            texture.enable();
+            shader.enable();
+            mesh.render();
+            shader.disable();
+            texture.disable();
+        }
     }
 
     @Override
