@@ -21,6 +21,28 @@ public abstract class Entity implements IEntity {
     protected Matrix4f modelMatrix;
 
 
+    public Entity(VertexArray mesh, Shader shader, Vector3f position) {
+        this.mesh = mesh;
+        this.shader = shader;
+        this.position = position;
+    }
+
+    public Entity(VertexArray mesh, Shader shader, Vector3f position, float scalar) {
+        this(mesh,shader,position);
+        this.scale = new Vector3f(scalar,scalar,scalar);
+    }
+
+    public Entity(VertexArray mesh, Shader shader, Vector3f position,Texture texture) {
+        this.mesh = mesh;
+        this.shader = shader;
+        this.position = position;
+        this.texture = texture;
+    }
+    public Entity(VertexArray mesh, Shader shader,Vector3f position,Texture texture,float scalar) {
+        this(mesh,shader,position,texture);
+        this.scale = new Vector3f(scalar,scalar,scalar);
+    }
+
     // init
     private void initDefault(){}
     private void initScaled(){}
