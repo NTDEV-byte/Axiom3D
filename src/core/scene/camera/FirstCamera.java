@@ -40,10 +40,10 @@ public class FirstCamera extends Camera {
     @Override
     protected void mouseInput() {
         if(Mouse.isButtonDown(0)){
-
+              rotation.y += Mouse.getDX() * sensitivity;
         }
         if(Mouse.isButtonDown(1)){
-
+              rotation.x += Mouse.getDY() * sensitivity;
         }
     }
 
