@@ -10,7 +10,7 @@ public class FirstCamera extends Camera {
     private float rotationSpeed = 0.2f;
     private float moveSpeed = 0.2f;
 
-    protected FirstCamera(Vector3f position) {
+    public FirstCamera(Vector3f position) {
         super(position);
     }
 
