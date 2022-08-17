@@ -1,6 +1,6 @@
 package core;
 
-public interface IProgram {
+public interface IProgram extends Runnable{
 
             public void start();
             public void stop();

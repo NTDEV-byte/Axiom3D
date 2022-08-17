@@ -5,16 +5,13 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Texture
 {
-
     protected int id;
-
 
     public Texture(String texturePath){
         this.id = createTexture(texturePath);
@@ -62,6 +59,7 @@ public class Texture
         }
     }
 
-
-
+    public int getId() {
+        return id;
+    }
 }

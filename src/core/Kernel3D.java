@@ -9,8 +9,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 import java.util.Arrays;
 
-public class Kernel3D implements IProgram ,Runnable{
-
+public class Kernel3D implements IProgram {
     private boolean running;
     private Thread thread;
     private VertexArray mesh;
