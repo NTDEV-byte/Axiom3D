@@ -43,4 +43,5 @@ public abstract class Scene implements IScene {
             entities.get(i).render();
         }
     }
+
 }

@@ -20,12 +20,10 @@ public abstract class Camera implements ICamera {
         this.viewMatrix = new Matrix4f();
         this.invPosition = new Vector3f();
     }
-
     public void update(){
         this.keyBoardInput();
         this.mouseInput();
     }
-
     protected abstract void keyBoardInput();
     protected abstract void mouseInput();
 

@@ -2,7 +2,6 @@ package core.utils.textures;
 
 import core.utils.BuffersHelper;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
