@@ -16,19 +16,26 @@ public class FirstCamera extends Camera {
 
     @Override
     protected void keyBoardInput() {
+
+        float cos = (float)(Math.cos(Math.toRadians(rotation.y)));
+        float sin = (float)(Math.sin(Math.toRadians(rotation.y)));
+
         if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
-                position.z -= moveSpeed;
+                position.x += sin * moveSpeed;
+                position.z -= cos * moveSpeed;
         }
         if(Keyboard.isKeyDown(Keyboard.KEY_D)){
-                position.x += moveSpeed;
+                position.x += cos * moveSpeed;
+                position.z += sin * moveSpeed;
         }
         if(Keyboard.isKeyDown(Keyboard.KEY_S)){
-               position.z += moveSpeed;
-        }
+                position.x -= sin * moveSpeed;
+                position.z += cos * moveSpeed;
+            }
         if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
-                position.x -= moveSpeed;
+                position.x += cos * moveSpeed;
+                position.z -= sin * moveSpeed;
         }
-
         if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
                 position.y += moveSpeed;
         }
@@ -36,7 +43,6 @@ public class FirstCamera extends Camera {
                 position.y -= moveSpeed;
         }
     }
-
     @Override
     protected void mouseInput() {
         if(Mouse.isButtonDown(0)){
@@ -46,8 +52,5 @@ public class FirstCamera extends Camera {
               rotation.x += Mouse.getDY() * sensitivity;
         }
     }
-
-
-
 
 }

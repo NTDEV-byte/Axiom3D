@@ -44,6 +44,7 @@ public abstract class Scene implements IScene {
         for(int i = 0; i < entities.size(); i++){
             entities.get(i).update();
         }
+        MAIN_CAMERA.update();
     }
     @Override
     public void render() {

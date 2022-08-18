@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Kernel3D.iml" filepath="$PROJECT_DIR$/Kernel3D.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Minimalist3D.iml" filepath="$PROJECT_DIR$/Minimalist3D.iml" />
     </modules>
   </component>
 </project>

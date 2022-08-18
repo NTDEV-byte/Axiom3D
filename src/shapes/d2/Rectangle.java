@@ -5,13 +5,10 @@ import core.scene.entity.Entity;
 import core.utils.shaders.Shader;
 import core.utils.vaos.Vertex;
 import core.utils.vaos.VertexArray;
-import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
-
 import java.util.Arrays;
 
 public class Rectangle extends Entity {
-
     private static VertexArray mesh = new VertexArray(
             Arrays.asList(new Vertex[]{
                     new Vertex(new Vector3f(-0.5f ,0.5f,0)),
@@ -29,9 +26,7 @@ public class Rectangle extends Entity {
         super.loadModelMatrix();
         super.loadViewMatrix(Scene.MAIN_CAMERA);
         super.rotate(0.0f,6f,0);
-        super.move(0,0,-0.01f);
+
     }
-
-
 
 }
