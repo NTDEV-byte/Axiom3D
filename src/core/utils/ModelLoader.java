@@ -88,9 +88,4 @@ public class ModelLoader {
                     indices.add(vertexIndex);
             }
 
-            private static void display(String s[]){
-                    for(String o : s){
-                        System.out.print(o +" ");
-                    }
-            }
 }

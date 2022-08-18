@@ -9,7 +9,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 
 public class Torus extends Entity {
-    private static VertexArray mesh = ModelLoader.loadModel("resources/models/torus.obj");
+    private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/torus.obj");
 
     public Torus(Vector3f position) {
         super(mesh, new Shader("resources/shaders/basicVS.glsl" , "resources/shaders/basicFS.glsl"), position);

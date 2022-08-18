@@ -35,10 +35,7 @@ public class Kernel3D implements IProgram {
     private void initialize(){
         Window.createWindow();
         GL11.glClearColor(0 , 1f , 0 , 1.0f);
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
-       GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK,GL11.GL_LINE);
         scene = new DefaultScene();
-        ModelLoader.loadModel("resources/models/torus.obj");
     }
     private void update(){
         Window.update();
