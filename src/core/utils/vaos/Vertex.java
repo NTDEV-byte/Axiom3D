@@ -8,9 +8,12 @@ public class Vertex {
         public static final int VERTEX_POSITION_ONLY = 1;
         public static final int VERTEX_POSITION_UV = 2;
         public static final int VERTEX_INFORMATION_COMPLETE = 3;
+
+        private int vertexIndex;
         private Vector3f position;
         private Vector2f uvs;
         private Vector3f normal;
+
         private int whatInformationIsStored;
 
         public Vertex(Vector3f position) {
@@ -26,6 +29,18 @@ public class Vertex {
                 this(position,uvs);
                 this.normal = normal;
                 this.whatInformationIsStored = VERTEX_INFORMATION_COMPLETE;
+        }
+
+        public Vertex(int vertexIndex,Vector3f position, Vector2f uvs, Vector3f normal) {
+                this(position,uvs);
+                this.normal = normal;
+                this.whatInformationIsStored = VERTEX_INFORMATION_COMPLETE;
+               this.vertexIndex = vertexIndex;
+        }
+
+
+        public String toString(){
+                return "position: "+position.toString()+ "uvs: "+uvs.toString()+" normals: "+normal.toString();
         }
 
         public Vector3f getPosition() {
@@ -44,4 +59,7 @@ public class Vertex {
                return whatInformationIsStored;
         }
 
+        public int getVertexIndex() {
+                return vertexIndex;
+        }
 }

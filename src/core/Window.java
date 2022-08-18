@@ -13,7 +13,7 @@ public class Window {
         public static final int WIDTH = 1280;
         public static final int HEIGHT = 720;
         public static final int MAX_FPS = 120;
-        public static final String TITLE = "Kernel3D";
+        public static final String TITLE = "Min3D";
 
         private static double lastTime = getTimeInMS();
         private static double now;

@@ -168,26 +168,23 @@ public class VertexBufferObject {
                 uvs = new float[vertices.size() * 2];
                 normals = new float[vertices.size() * 3];
 
-                int vertexIndex = 0;
-
                 for(Vertex vertex : vertices){
 
                         Vector3f position = vertex.getPosition();
                         Vector2f uv = vertex.getUvs();
                         Vector3f normal = vertex.getNormal();
 
-                        positions[vertexIndex * 3] = position.x;
-                        positions[vertexIndex * 3 + 1] = position.y;
-                        positions[vertexIndex * 3 + 2] = position.z;
+                        positions[vertex.getVertexIndex() * 3] = position.x;
+                        positions[vertex.getVertexIndex() * 3 + 1] = position.y;
+                        positions[vertex.getVertexIndex() * 3 + 2] = position.z;
 
-                        uvs[vertexIndex * 2] = uv.x;
-                        uvs[vertexIndex * 2 + 1] = uv.y;
+                        uvs[vertex.getVertexIndex()  * 2] = uv.x;
+                        uvs[vertex.getVertexIndex()  * 2 + 1] = uv.y;
 
-                        normals[vertexIndex * 3] = normal.x;
-                        normals[vertexIndex * 3] = normal.y;
-                        normals[vertexIndex * 3] = normal.z;
+                        normals[vertex.getVertexIndex()  * 3] = normal.x;
+                        normals[vertex.getVertexIndex()  * 3 + 1] = normal.y;
+                        normals[vertex.getVertexIndex()  * 3 + 2] = normal.z;
 
-                        vertexIndex++;
                 }
         }
 }

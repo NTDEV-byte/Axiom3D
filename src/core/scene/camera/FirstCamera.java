@@ -33,7 +33,7 @@ public class FirstCamera extends Camera {
                 position.z += cos * moveSpeed;
             }
         if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
-                position.x += cos * moveSpeed;
+                position.x -= cos * moveSpeed;
                 position.z -= sin * moveSpeed;
         }
         if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
@@ -49,7 +49,7 @@ public class FirstCamera extends Camera {
               rotation.y += Mouse.getDX() * sensitivity;
         }
         if(Mouse.isButtonDown(1)){
-              rotation.x += Mouse.getDY() * sensitivity;
+              rotation.x -= Mouse.getDY() * sensitivity;
         }
     }
 
