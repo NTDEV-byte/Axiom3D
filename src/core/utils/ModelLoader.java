@@ -56,7 +56,9 @@ public class ModelLoader {
 
                         while((line = reader.readLine()) !=  null){
 
-                                if(!line.startsWith("f ")) continue;
+                                if(!line.startsWith("f ")){
+                                    continue;
+                                }
 
                                 tokens = line.split(" ");
 
@@ -82,9 +84,8 @@ public class ModelLoader {
                     int normalIndex  =  Integer.parseInt(vertexInfo[2]) - 1;
 
                     Vector2f uv = uvs.get(textureIndex);
-                    uv.y = uv.y - 1;
 
-                    verticesData.add(new Vertex(vertexIndex,positions.get(vertexIndex) , uvs.get(textureIndex) , normals.get(normalIndex)));
+                    verticesData.add(new Vertex(vertexIndex,positions.get(vertexIndex) , uv, normals.get(normalIndex)));
                     indices.add(vertexIndex);
             }
 

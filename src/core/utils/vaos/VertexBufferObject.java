@@ -30,6 +30,8 @@ public class VertexBufferObject {
                 this.prepareVBO();
                 this.createBuffersData();
         }
+
+        // complete vao
         public VertexBufferObject(List<Vertex> vertices,List<Integer> indicesList){
                 this.vertices = vertices;
                 this.indicesList = indicesList;
@@ -178,8 +180,8 @@ public class VertexBufferObject {
                         positions[vertex.getVertexIndex() * 3 + 1] = position.y;
                         positions[vertex.getVertexIndex() * 3 + 2] = position.z;
 
-                        uvs[vertex.getVertexIndex()  * 2] = uv.x;
-                        uvs[vertex.getVertexIndex()  * 2 + 1] = uv.y;
+                        uvs[vertex.getVertexIndex() * 2] = uv.x;
+                        uvs[vertex.getVertexIndex() * 2 + 1] = 1 - uv.y;
 
                         normals[vertex.getVertexIndex()  * 3] = normal.x;
                         normals[vertex.getVertexIndex()  * 3 + 1] = normal.y;

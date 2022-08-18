@@ -2,17 +2,13 @@ package core;
 
 
 import core.scene.Scene;
-import core.utils.ModelLoader;
 import org.lwjgl.opengl.GL11;
 import scenes.DefaultScene;
-
 
 public class Kernel3D implements IProgram {
     private boolean running;
     private Thread thread;
     private Scene scene;
-
-
 
     @Override
     public void start() {
@@ -34,8 +30,14 @@ public class Kernel3D implements IProgram {
     }
     private void initialize(){
         Window.createWindow();
-        GL11.glClearColor(0 , 1f , 0 , 1.0f);
+        this.initOpenGLConfiguration();
         scene = new DefaultScene();
+    }
+
+    private void initOpenGLConfiguration(){
+        GL11.glClearColor(0 , 1f , 0 , 1.0f);
+        //GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK,GL11.GL_LINE);
+        GL11.glEnable(GL11.GL_DEPTH_TEST);
     }
     private void update(){
         Window.update();

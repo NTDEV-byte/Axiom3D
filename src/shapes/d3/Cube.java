@@ -8,11 +8,11 @@ import core.utils.textures.Texture;
 import core.utils.vaos.VertexArray;
 import org.lwjgl.util.vector.Vector3f;
 
+public class Cube extends Entity {
+    private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/cube.obj");
+    private static Texture texture = new Texture("resources/textures/cube.png");
 
-public class Torus extends Entity {
-    private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/torus.obj");
-    private static Texture texture = new Texture("resources/textures/torus.png");
-    public Torus(Vector3f position) {
+    public Cube(Vector3f position) {
         super(mesh, new Shader("resources/shaders/global/texture/textureVS.glsl" , "resources/shaders/global/texture/textureFS.glsl"), position , texture);
     }
     @Override
@@ -22,5 +22,3 @@ public class Torus extends Entity {
         super.rotate(0.0f,0.1f,0.0f);
     }
 }
-
-

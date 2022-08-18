@@ -32,15 +32,13 @@ public class Vertex {
         }
 
         public Vertex(int vertexIndex,Vector3f position, Vector2f uvs, Vector3f normal) {
-                this(position,uvs);
-                this.normal = normal;
-                this.whatInformationIsStored = VERTEX_INFORMATION_COMPLETE;
-               this.vertexIndex = vertexIndex;
+                this(position,uvs,normal);
+                this.vertexIndex = vertexIndex;
         }
 
 
         public String toString(){
-                return "position: "+position.toString()+ "uvs: "+uvs.toString()+" normals: "+normal.toString();
+                return "ID: "+vertexIndex+" position: "+position.toString()+ "uvs: "+uvs.toString()+" normals: "+normal.toString()+" \n";
         }
 
         public Vector3f getPosition() {
