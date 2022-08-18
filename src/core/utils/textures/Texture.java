@@ -49,7 +49,7 @@ public class Texture
             GL11.glBindTexture(GL11.GL_TEXTURE_2D,textureID);
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D,GL11.GL_TEXTURE_MIN_FILTER,GL11.GL_LINEAR);
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D,GL11.GL_TEXTURE_MAG_FILTER,GL11.GL_LINEAR);
-            GL11.glTexImage2D(GL11.GL_TEXTURE_2D,0,GL11.GL_RGBA,width,height,0,GL11.GL_RGBA,GL11.GL_UNSIGNED_INT, BuffersHelper.createIntBuffer(swizzleRGBAPixels));
+            GL11.glTexImage2D(GL11.GL_TEXTURE_2D,0,GL11.GL_RGBA,width,height,0,GL11.GL_RGBA,GL11.GL_UNSIGNED_BYTE, BuffersHelper.createIntBuffer(swizzleRGBAPixels));
             GL11.glBindTexture(GL11.GL_TEXTURE_2D,0);
 
             return textureID;

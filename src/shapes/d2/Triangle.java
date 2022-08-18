@@ -20,7 +20,7 @@ public class Triangle extends Entity {
             Arrays.asList(new Integer[]{0,1,2}));
 
     public Triangle(Vector3f position) {
-        super(mesh, new Shader("resources/shaders/basicVS.glsl" , "resources/shaders/basicFS.glsl"), position);
+        super(mesh, new Shader("resources/shaders/raw.glsl" , "resources/shaders/rawFS.glsl"), position);
     }
     @Override
     public void update() {

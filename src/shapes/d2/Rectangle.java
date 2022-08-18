@@ -19,7 +19,7 @@ public class Rectangle extends Entity {
             Arrays.asList(new Integer[]{0,1,2 , 2 , 1 , 3}));
 
     public Rectangle(Vector3f position) {
-        super(mesh, new Shader("resources/shaders/basicVS.glsl" , "resources/shaders/basicFS.glsl"), position);
+        super(mesh, new Shader("resources/shaders/raw.glsl" , "resources/shaders/rawFS.glsl"), position);
     }
     @Override
     public void update() {
