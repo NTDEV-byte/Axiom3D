@@ -5,6 +5,7 @@ import core.scene.camera.ICamera;
 import core.utils.shaders.Shader;
 import core.utils.textures.Texture;
 import core.utils.vaos.VertexArray;
+import light.Light;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
@@ -62,7 +63,7 @@ public abstract class Entity implements IEntity {
         this.loadProjectionMatrix();
     }
 
-    // entity related behaviour
+    // entity  behaviour related
     @Override
     public abstract void update();
 
@@ -118,6 +119,15 @@ public abstract class Entity implements IEntity {
     protected void loadProjectionMatrix(){
         shader.enable();
         shader.loadUniformMatrix4FV("projectionMatrix", Scene.PROJECTION_MATRIX);
+        shader.disable();
+    }
+    protected void loadSourceLight(Light light){
+        shader.enable();
+        shader.loadUniform3f("position" , light.getPosition());
+        shader.loadUniform3f("color" , light.getColor());
+        shader.loadUniform1f("ambient", light.getAmbient());
+        shader.loadUniform1f("intensity" , light.getIntensity());
+        shader.loadUniform1f("reflectivity" , light.getReflectivity());
         shader.disable();
     }
 }
