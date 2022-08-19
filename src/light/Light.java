@@ -34,4 +34,24 @@ public class Light {
         public float getReflectivity() {
                 return reflectivity;
         }
+
+        public void setPosition(Vector3f position) {
+                this.position = position;
+        }
+
+        public void setColor(Vector3f color) {
+                this.color = color;
+        }
+
+        public void setAmbient(float ambient) {
+                this.ambient = ambient;
+        }
+
+        public void setIntensity(float intensity) {
+                this.intensity = intensity;
+        }
+
+        public void setReflectivity(float reflectivity) {
+                this.reflectivity = reflectivity;
+        }
 }

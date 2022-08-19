@@ -13,12 +13,13 @@ public class Cube extends Entity {
     private static Texture texture = new Texture("resources/textures/shapes/cube.png");
 
     public Cube(Vector3f position) {
-        super(mesh, new Shader("resources/shaders/global/texture/textureVS.glsl" , "resources/shaders/global/texture/textureFS.glsl"), position , texture);
+        super(mesh, new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"), position , texture);
     }
     @Override
     public void update() {
         super.loadModelMatrix();
         super.loadViewMatrix(Scene.MAIN_CAMERA);
+        super.loadSourceLight(Scene.SUN_LIGHT);
         super.rotate(0.0f,0.1f,0.0f);
     }
 }

@@ -13,6 +13,7 @@ uniform vec3 lightPosition;
 out vec2 uvs;
 out vec3 tlsVec3;
 out vec3 transformedNormals;
+out vec3 toCameraVector;
 
 void main(){
 
@@ -25,5 +26,11 @@ void main(){
         // input for diffuse lighting calculations
         tlsVec3 = lightPosition - positionRelativeToCamera.xyz;
         transformedNormals = (modelMatrix * (vec4(normals,1.0))).xyz;
+
+        // input specular lighting
+
+        vec3 cameraPosition = (inverse(viewMatrix) * vec4(0,0,0,1)).xyz;
+        toCameraVector = cameraPosition - positionRelativeToWorld.xyz;
+
 
 }

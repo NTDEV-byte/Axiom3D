@@ -21,7 +21,7 @@ public class Torus extends Entity {
         super.loadViewMatrix(Scene.MAIN_CAMERA);
         super.loadSourceLight(Scene.SUN_LIGHT);
         super.rotate(0.9f,0.4f,0.8f);
-
+        Scene.SUN_LIGHT.setReflectivity(Scene.SUN_LIGHT.getIntensity()  + 0.01f);
     }
 }
 
