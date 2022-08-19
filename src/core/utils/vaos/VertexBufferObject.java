@@ -143,6 +143,7 @@ public class VertexBufferObject {
                 }
         }
 
+
         private void extractVertexInformationPU(){
                 positions = new float[vertices.size() * 3];
                 uvs = new float[vertices.size() * 2];

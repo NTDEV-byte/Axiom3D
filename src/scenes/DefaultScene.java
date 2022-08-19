@@ -9,6 +9,6 @@ public class DefaultScene extends Scene {
     @Override
     protected void addItemsOnStartScene() {
          addEntity(new Torus(new Vector3f(0,0,0)));
-        addEntity(new Cube(new Vector3f(0,15,-15)));
+         addEntity(new Cube(new Vector3f(0,15,-15)));
     }
 }

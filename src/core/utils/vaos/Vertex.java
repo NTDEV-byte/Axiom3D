@@ -30,17 +30,13 @@ public class Vertex {
                 this.normal = normal;
                 this.whatInformationIsStored = VERTEX_INFORMATION_COMPLETE;
         }
-
         public Vertex(int vertexIndex,Vector3f position, Vector2f uvs, Vector3f normal) {
                 this(position,uvs,normal);
                 this.vertexIndex = vertexIndex;
         }
-
-
         public String toString(){
                 return "ID: "+vertexIndex+" position: "+position.toString()+ "uvs: "+uvs.toString()+" normals: "+normal.toString()+" \n";
         }
-
         public Vector3f getPosition() {
                 return position;
         }

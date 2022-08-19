@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Minimalist3D.iml" filepath="$PROJECT_DIR$/Minimalist3D.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Axiom3D.iml" filepath="$PROJECT_DIR$/Axiom3D.iml" />
     </modules>
   </component>
 </project>

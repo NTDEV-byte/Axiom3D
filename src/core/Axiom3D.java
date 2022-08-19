@@ -5,7 +5,7 @@ import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
 import scenes.DefaultScene;
 
-public class Kernel3D implements IProgram {
+public class Axiom3D implements IProgram {
     private boolean running;
     private Thread thread;
     private Scene scene;
@@ -17,6 +17,7 @@ public class Kernel3D implements IProgram {
         thread.start();
     }
     @Override
+
     public void stop() {
         running = false;
     }
@@ -52,10 +53,8 @@ public class Kernel3D implements IProgram {
     }
 
     public static void main(String args[]){
-         Kernel3D kernel = new Kernel3D();
+         Axiom3D kernel = new Axiom3D();
          kernel.start();
-
-
     }
 
 }
