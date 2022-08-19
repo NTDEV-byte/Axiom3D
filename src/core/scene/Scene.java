@@ -24,7 +24,7 @@ public abstract class Scene implements IScene {
                                                                              0.1f ,
                                                                               1000.0f);
     public static final Camera MAIN_CAMERA = new FirstCamera(new Vector3f(0,0,0));
-    public static final Light SUN_LIGHT = new Light(new Vector3f(0,1000_000_000,0) , new Vector3f(1,1,1));
+    public static final Light SUN_LIGHT = new Light(new Vector3f(0,1000_000,0) , new Vector3f(1,1,1));
 
     protected List<Entity> entities;
     protected Scene(){

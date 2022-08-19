@@ -123,8 +123,8 @@ public abstract class Entity implements IEntity {
     }
     protected void loadSourceLight(Light light){
         shader.enable();
-        shader.loadUniform3f("position" , light.getPosition());
-        shader.loadUniform3f("color" , light.getColor());
+        shader.loadUniform3f("lightPosition" , light.getPosition());
+        shader.loadUniform3f("lightColor" , light.getColor());
         shader.loadUniform1f("ambient", light.getAmbient());
         shader.loadUniform1f("intensity" , light.getIntensity());
         shader.loadUniform1f("reflectivity" , light.getReflectivity());

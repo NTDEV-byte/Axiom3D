@@ -23,7 +23,7 @@ void main(){
         uvs = textures;
 
         // input for diffuse lighting calculations
-        tlsVec3 = lightPosition - positionRelativeToWorld.xyz;
-        transformedNormals = (modelMatrix * (vec4(transformedNormals,1.0))).xyz;
+        tlsVec3 = lightPosition - positionRelativeToCamera.xyz;
+        transformedNormals = (modelMatrix * (vec4(normals,1.0))).xyz;
 
 }

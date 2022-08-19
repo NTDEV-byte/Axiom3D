@@ -13,4 +13,5 @@ public class DefaultScene extends Scene {
          addEntity(new Cube(new Vector3f(0,15,-15)));
          addEntity(new SuzanneMonkey(new Vector3f(0,50,0)));
     }
+
 }
