@@ -5,6 +5,7 @@ import core.scene.camera.Camera;
 import core.scene.camera.FirstCamera;
 import core.scene.entity.Entity;
 import core.scene.entity.IEntity;
+import light.Light;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
@@ -24,6 +25,9 @@ public abstract class Scene implements IScene {
                                                                              0.1f ,
                                                                               1000.0f);
     public static final Camera MAIN_CAMERA = new FirstCamera(new Vector3f(0,0,0));
+    public static final Light SUN_LIGHT = new Light(new Vector3f(0,1000_000_000,0) , new Vector3f(1,1,1));
+
+
     protected List<Entity> entities;
     protected Scene(){
         entities = new ArrayList<>();
