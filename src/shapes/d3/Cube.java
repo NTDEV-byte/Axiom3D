@@ -10,7 +10,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 public class Cube extends Entity {
     private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/cube.obj");
-    private static Texture texture = new Texture("resources/textures/cube.png");
+    private static Texture texture = new Texture("resources/textures/shapes/cube.png");
 
     public Cube(Vector3f position) {
         super(mesh, new Shader("resources/shaders/global/texture/textureVS.glsl" , "resources/shaders/global/texture/textureFS.glsl"), position , texture);

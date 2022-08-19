@@ -13,8 +13,8 @@ public class SuzanneMonkey extends Entity {
     private static VertexArray mesh = ModelLoader.loadModel("resources/models/suzanne.obj");
     private static Texture texture = new Texture("resources/textures/models/suzanne.png");
 
-    public SuzanneMonkey(VertexArray mesh, Shader shader, Vector3f position) {
-        super(mesh, shader, position,texture);
+    public SuzanneMonkey(Vector3f position) {
+        super(mesh, new Shader("resources/shaders/global/texture/textureVS.glsl" , "resources/shaders/global/texture/textureFS.glsl"), position,texture);
     }
 
     @Override

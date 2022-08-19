@@ -11,7 +11,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 public class Torus extends Entity {
     private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/torus.obj");
-    private static Texture texture = new Texture("resources/textures/torus.png");
+    private static Texture texture = new Texture("resources/textures/shapes/torus.png");
     public Torus(Vector3f position) {
         super(mesh, new Shader("resources/shaders/global/texture/textureVS.glsl" , "resources/shaders/global/texture/textureFS.glsl"), position , texture);
     }
@@ -19,7 +19,8 @@ public class Torus extends Entity {
     public void update() {
         super.loadModelMatrix();
         super.loadViewMatrix(Scene.MAIN_CAMERA);
-        super.rotate(0.0f,0.1f,0.0f);
+        super.rotate(0.9f,0.4f,0.8f);
+
     }
 }
 

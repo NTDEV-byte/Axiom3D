@@ -1,6 +1,5 @@
 package core;
 
-
 import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
 import scenes.DefaultScene;
@@ -13,7 +12,7 @@ public class Axiom3D implements IProgram {
     @Override
     public void start() {
         running = true;
-        thread = new Thread(this, "Kernel3D - Thread");
+        thread = new Thread(this, "Axiom3D - Thread");
         thread.start();
     }
     @Override
@@ -36,8 +35,7 @@ public class Axiom3D implements IProgram {
     }
 
     private void initOpenGLConfiguration(){
-        GL11.glClearColor(0 , 1f , 0 , 1.0f);
-        //GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK,GL11.GL_LINE);
+        GL11.glClearColor(0 , 0.0f , 0 , 1.0f);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
     }
     private void update(){
@@ -51,7 +49,6 @@ public class Axiom3D implements IProgram {
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
         scene.render();
     }
-
     public static void main(String args[]){
          Axiom3D kernel = new Axiom3D();
          kernel.start();
