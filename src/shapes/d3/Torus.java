@@ -13,7 +13,11 @@ public class Torus extends Entity {
     private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/torus.obj");
     private static Texture texture = new Texture("resources/textures/shapes/torus.png");
     public Torus(Vector3f position) {
-        super(mesh, new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"), position , texture);
+        super(mesh,
+                new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"),
+                position,
+                texture,
+                (float) (Math.random() * 25f));
     }
     @Override
     public void update() {
@@ -21,7 +25,6 @@ public class Torus extends Entity {
         super.loadViewMatrix(Scene.MAIN_CAMERA);
         super.loadSourceLight(Scene.SUN_LIGHT);
         super.rotate(0.9f,0.4f,0.8f);
-        Scene.SUN_LIGHT.setReflectivity(Scene.SUN_LIGHT.getIntensity()  + 0.01f);
     }
 }
 

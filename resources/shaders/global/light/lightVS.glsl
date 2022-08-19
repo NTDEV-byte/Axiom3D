@@ -25,7 +25,7 @@ void main(){
 
         // input for diffuse lighting calculations
         tlsVec3 = lightPosition - positionRelativeToCamera.xyz;
-        transformedNormals = (modelMatrix * (vec4(normals,1.0))).xyz;
+        transformedNormals = (viewMatrix * (vec4(normals,0.0))).xyz;
 
         // input specular lighting
 

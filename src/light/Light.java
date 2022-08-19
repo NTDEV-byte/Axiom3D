@@ -6,8 +6,8 @@ public class Light {
 
         private Vector3f position;
         private Vector3f color;
-        private float ambient = 0.2f;
-        private float intensity = 1.0f;
+        private float ambient = 0.3f;
+        private float intensity = 8f;
         private float reflectivity = 0.01f;
 
         public Light(Vector3f position, Vector3f color) {
