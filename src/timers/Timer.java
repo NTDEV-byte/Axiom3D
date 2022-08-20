@@ -1,5 +1,6 @@
 package timers;
 
+import abstraction.IDelayedTask;
 import org.lwjgl.Sys;
 
 public class Timer {
@@ -16,11 +17,14 @@ public class Timer {
                 delta = (now - lastTime) / 1000; // delta is in second's
                 lastTime = now;
         }
+
+
         private static double getTimeInMS(){
                 return Sys.getTime() * 1000 / Sys.getTimerResolution();
         }
 
         public static double getElapsedTime(){return delta;}
+
 
 
 }
