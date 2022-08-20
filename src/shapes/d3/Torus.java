@@ -12,19 +12,23 @@ import org.lwjgl.util.vector.Vector3f;
 public class Torus extends Entity {
     private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/torus.obj");
     private static Texture texture = new Texture("resources/textures/shapes/torus.png");
+    private float pitch,yaw,roll;
     public Torus(Vector3f position) {
         super(mesh,
                 new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"),
                 position,
                 texture,
                 (float) (Math.random() * 25f));
+       this.pitch =  (float) Math.random();
+       this.yaw = (float) Math.random();
+       this.roll = (float) Math.random();
     }
     @Override
     public void update() {
         super.loadModelMatrix();
         super.loadViewMatrix(Scene.MAIN_CAMERA);
         super.loadSourceLight(Scene.SUN_LIGHT);
-        super.rotate(0.9f,0.4f,0.8f);
+        super.rotate(pitch,yaw,roll);
     }
 }
 

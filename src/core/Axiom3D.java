@@ -3,6 +3,7 @@ package core;
 import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
 import scenes.DefaultScene;
+import scenes.HypnosisTorusScene;
 
 public class Axiom3D implements IProgram {
     private boolean running;
@@ -31,7 +32,7 @@ public class Axiom3D implements IProgram {
     private void initialize(){
         Window.createWindow();
         this.initOpenGLConfiguration();
-        scene = new DefaultScene();
+        scene = new HypnosisTorusScene();
     }
 
     private void initOpenGLConfiguration(){
