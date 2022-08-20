@@ -22,6 +22,8 @@ public abstract class Entity implements IEntity {
     protected Vector3f scale;
     protected Matrix4f modelMatrix;
 
+
+
     public Entity(VertexArray mesh, Shader shader, Vector3f position) {
         this.mesh = mesh;
         this.shader = shader;
@@ -50,14 +52,15 @@ public abstract class Entity implements IEntity {
         this.scale = new Vector3f(scalar,scalar,scalar);
         this.initScaled();
     }
+    protected Entity(){}
     // init
-    private void initDefault(){
+    protected void initDefault(){
         this.rotation = new Vector3f();
         this.modelMatrix = new Matrix4f();
         this.scale = new Vector3f(1.0f , 1.0f , 1.0f);
         this.loadProjectionMatrix();
     }
-    private void initScaled(){
+    protected void initScaled(){
         this.rotation = new Vector3f();
         this.modelMatrix = new Matrix4f();
         this.loadProjectionMatrix();
