@@ -15,15 +15,19 @@ public abstract class DelayedTask implements IDelayedTask,Runnable {
         public void run(){
             if(isMinDelayReached()){
                 this.taskLogic();
+                this.reset();
             }
         }
         private boolean isMinDelayReached(){
              bucket += Timer.getElapsedTime();
              if(bucket >= minWaitValue){
-                 bucket = 0;
                  return true;
              }
              return false;
+        }
+
+        private void reset(){
+            bucket = 0;
         }
 
 }

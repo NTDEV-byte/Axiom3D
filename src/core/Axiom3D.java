@@ -3,6 +3,8 @@ package core;
 import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
 import cooking.MeshCookingScene;
+import timers.DelayedTask;
+import timers.Timer;
 
 public class Axiom3D implements IProgram {
     private boolean running;
@@ -40,6 +42,7 @@ public class Axiom3D implements IProgram {
     }
     private void update(){
         Window.update();
+        Timer.activateTimer();
         if(Window.isCloseRequested()){
              stop();
         }

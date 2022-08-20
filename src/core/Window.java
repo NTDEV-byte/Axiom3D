@@ -41,8 +41,5 @@ public class Window {
                 Display.sync(maxFPS);
         }
 
-        public static double getElapsedTime(){ // the elapsed time between two frames
-                return delta;
-        }
 
 }
