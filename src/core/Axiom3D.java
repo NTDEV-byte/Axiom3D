@@ -2,8 +2,7 @@ package core;
 
 import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
-import scenes.DefaultScene;
-import scenes.HypnosisTorusScene;
+import cooking.MeshCookingScene;
 
 public class Axiom3D implements IProgram {
     private boolean running;
@@ -32,11 +31,11 @@ public class Axiom3D implements IProgram {
     private void initialize(){
         Window.createWindow();
         this.initOpenGLConfiguration();
-        scene = new HypnosisTorusScene();
+        scene = new MeshCookingScene();
     }
 
     private void initOpenGLConfiguration(){
-        GL11.glClearColor(0 , 0.0f , 0 , 1.0f);
+        GL11.glClearColor(0 , 0.0f , 1 , 1.0f);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
     }
     private void update(){

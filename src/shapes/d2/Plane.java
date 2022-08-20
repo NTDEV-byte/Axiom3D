@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Plane extends Entity implements ICraftedByHand {
-
-
     private int size = 800;
     private int verticesCounter = 128;
 
