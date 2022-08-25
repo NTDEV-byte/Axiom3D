@@ -12,7 +12,9 @@ import timers.DelayedTask;
 import java.util.ArrayList;
 import java.util.List;
 public class MeshCooker {
+
         private static final int LEFT_MOUSE_BUTTON = 0;
+
         private static final int RIGHT_MOUSE_BUTTON = 1;
         private static final int MIDDLE_MOUSE_BUTTON = 2;
 
@@ -31,9 +33,7 @@ public class MeshCooker {
                         //System.out.println("Running !");
                     }
                 };
-
             }
-
             waiter.run();
         }
         private void meshCreation(Scene scene){
@@ -55,16 +55,13 @@ public class MeshCooker {
                 else{
                     System.err.println("The Mesh is invalid !");
                 }
-                //this.clearCurrentMeshData();
             }
-
         }
         private void clearCurrentMeshData(){
             mesh.clear();
             indices.clear();
             vertexIndex = 0;
         }
-
         private boolean isMeshValid(){
             return mesh.size() > 0 && indices.size() > 0;
         }

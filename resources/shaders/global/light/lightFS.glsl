@@ -19,7 +19,7 @@ void main() {
 
 
         float diffuseFactor = dot(unitTLSVec3,unitNormals);
-        diffuseFactor = clamp(diffuseFactor,-1.0f,1.0f);
+        diffuseFactor = max(diffuseFactor,0.1);
 
         vec3 diffuseColor = lightColor * diffuseFactor;
 

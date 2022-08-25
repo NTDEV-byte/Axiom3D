@@ -17,15 +17,15 @@ out vec3 toCameraVector;
 
 void main(){
 
-        vec4 positionRelativeToWorld = modelMatrix * vec4(positions,1.0);
-        vec4 positionRelativeToCamera = viewMatrix * positionRelativeToWorld;
+        vec4 positionRelativeToWorld =  modelMatrix * vec4(positions,1.0);
+        vec4 positionRelativeToCamera = viewMatrix  * positionRelativeToWorld;
 
         gl_Position = projectionMatrix * positionRelativeToCamera;
         uvs = textures;
 
         // input for diffuse lighting calculations
         tlsVec3 = lightPosition - positionRelativeToCamera.xyz;
-        transformedNormals = (viewMatrix * (vec4(normals,0.0))).xyz;
+        transformedNormals = (modelMatrix * (vec4(normals,0.0))).xyz;
 
         // input specular lighting
 

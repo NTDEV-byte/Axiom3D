@@ -8,7 +8,7 @@ public class FirstCamera extends Camera {
 
     private float sensitivity = 0.2f;
     private float rotationSpeed = 0.2f;
-    private float moveSpeed = 0.8f;
+    private float moveSpeed = 1.8f;
 
     public FirstCamera(Vector3f position) {
         super(position);
