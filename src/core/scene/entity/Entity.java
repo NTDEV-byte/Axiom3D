@@ -133,4 +133,13 @@ public abstract class Entity implements IEntity {
         shader.loadUniform1f("reflectivity" , light.getReflectivity());
         shader.disable();
     }
+
+
+    public Shader getShader() {
+        return shader;
+    }
+
+    public void setShader(Shader shader) {
+        this.shader = shader;
+    }
 }

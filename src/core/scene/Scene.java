@@ -70,6 +70,10 @@ public abstract class Scene implements IScene {
         projectionMatrix.m23 = -1.0f;
 
         return projectionMatrix;
+    }
 
+
+    public List<Entity> getEntities() {
+        return entities;
     }
 }
