@@ -61,7 +61,7 @@ public class CubeMap extends Entity {
     private static Texture texture = new CubeMapTexture(new String[]{
             "ocean/left.jpg", "ocean/right.jpg",
             "ocean/top.jpg",  "ocean/bottom.jpg",
-            "ocean/front.jpg","ocean/back.jpg"
+            "ocean/back.jpg","ocean/front.jpg"
     });
 
     public CubeMap(Vector3f position){

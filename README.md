@@ -35,3 +35,7 @@ for now it's very simple by the way I would say a minimalist engine that just al
 > Normals Interpolation
 
 ![img_3.png](img_3.png)
+
+> CubeMap
+
+![img_4.png](img_4.png)
