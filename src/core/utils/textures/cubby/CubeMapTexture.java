@@ -3,7 +3,6 @@ package core.utils.textures.cubby;
 import core.utils.textures.Texture;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
@@ -11,11 +10,19 @@ import java.io.IOException;
 
 public class CubeMapTexture extends Texture {
 
-
     public CubeMapTexture(String resources[]) {
         this.id = createCubeMap(resources);
     }
 
+    @Override
+    public void enable(){
+        GL11.glBindTexture(GL13.GL_TEXTURE_CUBE_MAP,id);
+    }
+
+    @Override
+    public void disable(){
+        GL11.glBindTexture(GL13.GL_TEXTURE_CUBE_MAP,0);
+    }
 
     private int createCubeMap(String resources[]){
 
