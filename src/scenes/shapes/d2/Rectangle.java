@@ -1,4 +1,4 @@
-package shapes.d2;
+package scenes.shapes.d2;
 
 import core.scene.Scene;
 import core.scene.entity.Entity;

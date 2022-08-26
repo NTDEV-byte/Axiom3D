@@ -1,4 +1,4 @@
-package timers;
+package plugins.timers;
 
 import abstraction.IDelayedTask;
 

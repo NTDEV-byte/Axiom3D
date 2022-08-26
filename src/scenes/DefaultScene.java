@@ -2,9 +2,9 @@ package scenes;
 
 import core.scene.Scene;
 import org.lwjgl.util.vector.Vector3f;
-import shapes.d3.Cube;
-import shapes.d3.Torus;
-import models.SuzanneMonkey;
+import scenes.shapes.d3.Cube;
+import scenes.shapes.d3.Torus;
+import scenes.models.SuzanneMonkey;
 
 public class DefaultScene extends Scene {
     @Override

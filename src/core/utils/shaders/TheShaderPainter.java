@@ -6,12 +6,12 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
-public class ThePainter {
+public class TheShaderPainter {
 
         private Scene scene;
         private ShaderType type = null;
 
-        public ThePainter(Scene scene) {
+        public TheShaderPainter(Scene scene) {
             this.scene = scene;
         }
 

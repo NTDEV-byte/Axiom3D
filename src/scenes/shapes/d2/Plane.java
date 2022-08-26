@@ -1,4 +1,4 @@
-package shapes.d2;
+package scenes.shapes.d2;
 
 import abstraction.ICraftedByHand;
 import core.scene.Scene;

@@ -1,4 +1,4 @@
-package models;
+package scenes.models;
 
 import core.scene.Scene;
 import core.scene.entity.Entity;
@@ -10,8 +10,8 @@ import org.lwjgl.util.vector.Vector3f;
 
 public class SuzanneMonkey extends Entity {
 
-    private static VertexArray mesh = ModelLoader.loadModel("resources/models/suzanne.obj");
-    private static Texture texture = new Texture("resources/textures/models/suzanne.png");
+    private static VertexArray mesh = ModelLoader.loadModel("resources/scenes.models/suzanne.obj");
+    private static Texture texture = new Texture("resources/textures/scenes.models/suzanne.png");
 
     public SuzanneMonkey(Vector3f position) {
         super(mesh, new Shader("resources/shaders/global/light/normalsVS.glsl" , "resources/shaders/global/light/normalsFS.glsl"), position,texture);

@@ -1,6 +1,5 @@
-package timers;
+package plugins.timers;
 
-import abstraction.IDelayedTask;
 import org.lwjgl.Sys;
 
 public class Timer {

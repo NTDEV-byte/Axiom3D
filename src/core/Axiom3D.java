@@ -3,7 +3,7 @@ package core;
 import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
 import scenes.HypnosisTorusScene;
-import timers.Timer;
+import plugins.timers.Timer;
 
 public class Axiom3D implements IProgram {
     private boolean running;
@@ -35,7 +35,7 @@ public class Axiom3D implements IProgram {
         scene = new HypnosisTorusScene();
     }
     private void initOpenGLConfiguration(){
-        GL11.glClearColor(0 , 0.0f , 0.0f , 1.0f);
+        GL11.glClearColor(0 , 0.5f , 0.5f , 1.0f);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
     }
     private void update(){

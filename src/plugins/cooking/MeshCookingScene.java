@@ -1,7 +1,7 @@
-package cooking;
+package plugins.cooking;
 
 import core.scene.Scene;
-import models.SuzanneMonkey;
+import scenes.models.SuzanneMonkey;
 import org.lwjgl.util.vector.Vector3f;
 public class MeshCookingScene extends Scene {
     private MeshCooker cooker = new MeshCooker();

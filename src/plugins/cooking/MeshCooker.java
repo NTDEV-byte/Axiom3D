@@ -1,4 +1,4 @@
-package cooking;
+package plugins.cooking;
 
 import core.scene.Scene;
 import core.utils.vaos.Vertex;
@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
-import timers.DelayedTask;
+import plugins.timers.DelayedTask;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package shapes.d3;
+package scenes.shapes.d3;
 
 import core.scene.Scene;
 import core.scene.entity.Entity;
@@ -17,7 +17,6 @@ public class Tree extends Entity {
     public Tree(Vector3f position){
         super(mesh,new Shader("resources/shaders/global/light/lightVS.glsl" ,"resources/shaders/global/light/lightFS.glsl"),position,texture, (float) (Math.random() * 100));
     }
-
 
     @Override
     public void update() {

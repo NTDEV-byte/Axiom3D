@@ -1,4 +1,4 @@
-package cooking;
+package plugins.cooking;
 
 import core.scene.Scene;
 import core.scene.entity.Entity;
