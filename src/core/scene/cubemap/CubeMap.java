@@ -21,7 +21,14 @@ public class CubeMap extends Entity {
                     new Vertex(new Vector3f( 1.0f , 1.0f , 1.0f)),
                     new Vertex(new Vector3f( 1.0f , 1.0f , 1.0f)),      // front face
                     new Vertex(new Vector3f( -1.0f , -1.0f , 1.0f)),
-                    new Vertex(new Vector3f( 1.0f , -1.0f , 1.0f))
+                    new Vertex(new Vector3f( 1.0f , -1.0f , 1.0f)),
+
+                    new Vertex(new Vector3f(-1.0f , 1.0f , -1.0f)),
+                    new Vertex(new Vector3f(-1.0f , -1.0f , -1.0f)),
+                    new Vertex(new Vector3f( 1.0f , 1.0f , -1.0f)),
+                    new Vertex(new Vector3f( 1.0f , 1.0f , -1.0f)),      // back face
+                    new Vertex(new Vector3f( -1.0f , -1.0f , -1.0f)),
+                    new Vertex(new Vector3f( 1.0f , -1.0f , -1.0f)),
             }));
     private static Texture texture = new CubeMapTexture(new String[]{
             "ocean/left.jpg", "ocean/right.jpg",
