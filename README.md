@@ -4,8 +4,19 @@ for now it's very simple by the way I would say a minimalist engine that just al
 
 ## Resources 
 
-https://learnopengl.com/
+# Prerequisites
 
+## Math Books & OpenGL
+
+1. 3D Math Primer for graphics & game development
+2. 3D Game Development with LWJGL 3
+
+## Tutorials
+
+### 1. Websites
+
+    1. https://learnopengl.com/
+    2. http://www.opengl-tutorial.org/fr/beginners-tutorials/
 
 ## ScreenShots
 

@@ -1,11 +1,8 @@
 package core.scene.camera;
 
-import core.scene.Scene;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
-
 import static core.scene.Scene.*;
-
 
 public abstract class Camera implements ICamera {
 

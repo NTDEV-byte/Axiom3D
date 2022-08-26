@@ -34,7 +34,6 @@ public class Axiom3D implements IProgram {
         this.initOpenGLConfiguration();
         scene = new HypnosisTorusScene();
     }
-
     private void initOpenGLConfiguration(){
         GL11.glClearColor(0 , 0.0f , 0.0f , 1.0f);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
