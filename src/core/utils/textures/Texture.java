@@ -15,6 +15,8 @@ public class Texture
     public Texture(String texturePath){
         this.id = createTexture(texturePath);
     }
+
+    protected Texture(){}
     public void enable(){
         GL11.glBindTexture(GL11.GL_TEXTURE_2D,id);
     }
