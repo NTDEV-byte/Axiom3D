@@ -17,6 +17,14 @@ public class DataBuffer {
         this.data = BuffersHelper.createIntBuffer(pixels);
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     public IntBuffer getData() {
         return data;
     }
