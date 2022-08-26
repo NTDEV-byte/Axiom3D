@@ -29,6 +29,13 @@ public class CubeMap extends Entity {
                     new Vertex(new Vector3f( 1.0f , 1.0f , -1.0f)),      // back face
                     new Vertex(new Vector3f( -1.0f , -1.0f , -1.0f)),
                     new Vertex(new Vector3f( 1.0f , -1.0f , -1.0f)),
+
+                    new Vertex(new Vector3f(-1.0f,1.0f,-1.0f)),
+                    new Vertex(new Vector3f(-1.0f , -1.0f,-1.0f)),
+                    new Vertex(new Vector3f(-1.0f, 1.0f , 1.0f)),       // left face
+                    new Vertex(new Vector3f(-1.0f, 1.0f , 1.0f)),
+                    new Vertex(new Vector3f(-1.0f, -1.0f , -1.0f)),
+                    new Vertex(new Vector3f( -1.0f, -1.0f , 1.0f)),
             }));
     private static Texture texture = new CubeMapTexture(new String[]{
             "ocean/left.jpg", "ocean/right.jpg",
@@ -37,7 +44,7 @@ public class CubeMap extends Entity {
     });
 
     public CubeMap(Vector3f position){
-        super(mesh,new Shader("resources/shaders/cubemap/cubemapVS.glsl"  , "resources/shaders/cubemap/cubemapFS.glsl") , position,texture);
+        super(mesh,new Shader("resources/shaders/cubemap/cubemapVS.glsl"  , "resources/shaders/cubemap/cubemapFS.glsl") , position,texture,200.0f);
     }
 
     public CubeMap(Vector3f position,String path[]){
