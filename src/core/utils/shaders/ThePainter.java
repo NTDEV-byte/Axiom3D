@@ -9,7 +9,7 @@ import java.util.List;
 public class ThePainter {
 
         private Scene scene;
-        private ShaderType type;
+        private ShaderType type = null;
 
         public ThePainter(Scene scene) {
             this.scene = scene;
@@ -53,35 +53,40 @@ public class ThePainter {
         private Shader createOne(){
             switch (type){
                 case POSITIONS:
-                    return new Shader("" , "");
+                //    return new Shader("" , "");
 
                 case UVS:
-                    return new Shader("" , "");
+                  //  return new Shader("" , "");
 
                 case NORMALS:
-                    return new Shader("" , "");
+                  // return new Shader("" , "");
 
                 case RAW:
-                    return new Shader("" , "");
+                    return new Shader("resources/shaders/global/raw/flat/rawVS.glsl" , "resources/shaders/global/raw/flat/rawFS.glsl");
 
                 case RAW_WITH_SOURCE_LIGHT:
-                    return new Shader("" , "");
+                    //return new Shader("" , "");
 
                 case TEXTURED:
-                    return new Shader("" , "");
+                    return new Shader("resources/shaders/global/texture/flat/textureVS.glsl" , "resources/shaders/global/texture/flat/uvsFS.glsl");
 
                 case TEXTURED_WITH_SOURCE_LIGHT:
-                    return new Shader("" , "");
+                   // return new Shader("" , "");
             }
 
-            return new Shader("" , "");
+            return new Shader("resources/shaders/global/light/normalsVS.glsl" , "resources/shaders/global/light/normalsFS.glsl");
 
         }
         private void applyChange(){
-            List<Entity> items = scene.getEntities();
-            for(Entity e : items){
-                e.setShader(createOne());
+            if(type != null){
+                List<Entity> items = scene.getEntities();
+                for(int i = 0; i < items.size(); i++){
+                    Entity e = items.get(i);
+                    e.setShader(createOne());
+                }
+                type = null;
             }
+
         }
 
         public enum ShaderType {

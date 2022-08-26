@@ -12,10 +12,10 @@ import org.lwjgl.util.vector.Vector3f;
 public class Torus extends Entity {
     private static VertexArray mesh = ModelLoader.loadModel("resources/models/shapes/torus.obj");
     private static Texture texture = new Texture("resources/textures/shapes/torus.png");
-    private float pitch,yaw,roll;
+    private float pitch,yaw,roll = 5f;
     public Torus(Vector3f position) {
         super(mesh,
-                new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"),
+                new Shader("resources/shaders/global/basic/normals/normalsVS.glsl" , "resources/shaders/global/basic/normals/normalsFS.glsl"),
                 position,
                 texture,
                 (float) (Math.random() * 25f));

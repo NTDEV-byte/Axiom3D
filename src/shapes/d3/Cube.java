@@ -13,7 +13,7 @@ public class Cube extends Entity {
     private static Texture texture = new Texture("resources/textures/shapes/cube.png");
 
     public Cube(Vector3f position) {
-        super(mesh, new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"), position , texture);
+        super(mesh, new Shader("resources/shaders/global/light/normalsVS.glsl" , "resources/shaders/global/light/normalsFS.glsl"), position , texture);
     }
     @Override
     public void update() {

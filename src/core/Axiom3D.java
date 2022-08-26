@@ -2,7 +2,6 @@ package core;
 
 import core.scene.Scene;
 import org.lwjgl.opengl.GL11;
-import cooking.MeshCookingScene;
 import scenes.HypnosisTorusScene;
 import timers.Timer;
 

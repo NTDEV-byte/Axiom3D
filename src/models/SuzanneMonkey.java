@@ -14,7 +14,7 @@ public class SuzanneMonkey extends Entity {
     private static Texture texture = new Texture("resources/textures/models/suzanne.png");
 
     public SuzanneMonkey(Vector3f position) {
-        super(mesh, new Shader("resources/shaders/global/light/lightVS.glsl" , "resources/shaders/global/light/lightFS.glsl"), position,texture);
+        super(mesh, new Shader("resources/shaders/global/light/normalsVS.glsl" , "resources/shaders/global/light/normalsFS.glsl"), position,texture);
     }
 
     @Override
