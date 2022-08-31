@@ -65,7 +65,7 @@ public class CubeMap extends Entity {
     });
 
     public CubeMap(Vector3f position){
-        super(mesh,new Shader("resources/shaders/cubemap/cubemapVS.glsl"  , "resources/shaders/cubemap/cubemapFS.glsl") , position,texture,200.0f);
+        super(mesh,new Shader("resources/shaders/cubemap/cubemapVS.glsl"  , "resources/shaders/cubemap/cubemapFS.glsl") , position,texture,1000f - 1.0f);
     }
 
     public CubeMap(Vector3f position,String path[]){
